@@ -1,24 +1,17 @@
-# self
+<!--
+ * @Author: 吴灏
+ * @Date: 2020-12-07 20:11:58
+ * @LastEditors: 吴灏
+ * @LastEditTime: 2020-12-08 20:35:06
+ * @Description: file content
+-->
 
-## Project setup
-```
-npm install
-```
+# 笔记
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+#### 什么是一个好的项目？
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- 有多级复杂数据的展示
+- 有数据创建（表单：数据的校验、文件的上传）
+- 组件的抽象
+- 数据结构的设计和实现
+- 权限管理和控制（权限的获取、持久化）
