@@ -2,12 +2,14 @@
  * @Author: 吴灏
  * @Date: 2020-12-08 21:14:02
  * @LastEditors: 吴灏
- * @LastEditTime: 2020-12-08 22:15:18
+ * @LastEditTime: 2020-12-09 22:10:34
  * @Description: file content
 -->
 <template>
-  <div class="container"></div>
-  <ColumnList :list="testData" />
+  <div class="container">
+    <GlobalHeader :user="userInfo" />
+    <ColumnList :list="testData" />
+  </div>
 </template>
 
 <script lang="ts">
@@ -16,12 +18,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import ColumnList, {
   ColumnListProps
 } from "./components/ColumnList/ColumnList.vue";
+import GlobalHeader, {
+  GlobalHeaderProps
+} from "./components/GlobalHeader/GlobalHeader.vue";
+
 
 const testData: ColumnListProps[] = [
   {
     id: 1,
     title: "test1的专栏",
-    description: "这是的test1专栏，有一段非常有意思的简介，可以更新一下欧",
+    description: "这是的test1专栏，有一段非常有意思的简介，可以更新一下欧"
   },
   {
     id: 2,
@@ -46,14 +52,22 @@ const testData: ColumnListProps[] = [
   }
 ];
 
+const userInfo: GlobalHeaderProps = {
+  id: 0,
+  name: "吴灏",
+  isLogin: true
+};
+
 export default defineComponent({
   name: "App",
   components: {
-    ColumnList
+    ColumnList,
+    GlobalHeader
   },
   setup() {
     return {
-      testData
+      testData,
+      userInfo
     };
   }
 });
