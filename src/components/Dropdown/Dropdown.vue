@@ -2,11 +2,11 @@
  * @Author: 吴灏
  * @Date: 2020-12-09 20:38:36
  * @LastEditors: 吴灏
- * @LastEditTime: 2020-12-09 22:31:34
+ * @LastEditTime: 2020-12-10 21:01:08
  * @Description: file content
 -->
 <template>
-  <div class="dropdown">
+  <div class="dropdown" ref="dropdownRef">
     <a
       class="btn btn-outline-light my-2 dropdown-toggle"
       @click.prevent="handleChangeOpenState"
@@ -20,7 +20,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, watch } from "vue";
+import useClickOutside from "@/hooks/useClickOutside";
 
 export default defineComponent({
   name: "Dropdown",
@@ -31,14 +32,21 @@ export default defineComponent({
   },
   setup() {
     const open = ref(false);
+    const dropdownRef = ref<null | HTMLElement>(null);
+    const isOutside = useClickOutside(dropdownRef);
 
     const handleChangeOpenState = () => {
       open.value = !open.value;
     };
 
+    watch(isOutside, () => {
+      if (isOutside.value) open.value = false;
+    });
+
     return {
       open,
-      handleChangeOpenState
+      handleChangeOpenState,
+      dropdownRef
     };
   }
 });

@@ -2,12 +2,12 @@
  * @Author: 吴灏
  * @Date: 2020-12-08 21:14:02
  * @LastEditors: 吴灏
- * @LastEditTime: 2020-12-09 22:10:34
+ * @LastEditTime: 2020-12-10 19:19:53
  * @Description: file content
 -->
 <template>
   <div class="container">
-    <GlobalHeader :user="userInfo" />
+    <GlobalHeader :props="userInfo" />
     <ColumnList :list="testData" />
   </div>
 </template>
