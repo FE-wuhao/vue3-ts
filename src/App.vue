@@ -2,13 +2,14 @@
  * @Author: 吴灏
  * @Date: 2020-12-08 21:14:02
  * @LastEditors: 吴灏
- * @LastEditTime: 2020-12-11 10:42:32
+ * @LastEditTime: 2020-12-11 16:30:25
  * @Description: file content
 -->
 <template>
   <div class="container">
-    <GlobalHeader :props="userInfo" />
-    <ColumnList :list="testData" />
+    <!-- <GlobalHeader :user="userInfo" /> -->
+    <ValidateInput :rules="rules" />
+    <!-- <ColumnList :list="testData" /> -->
   </div>
 </template>
 
@@ -21,6 +22,8 @@ import ColumnList, {
 import GlobalHeader, {
   GlobalHeaderProps
 } from "./components/GlobalHeader/GlobalHeader.vue";
+import ValidateInput from 'components/ValidateInput/ValidateInput.vue';
+import {IRule} from 'hooks/useFormValidate';
 
 const testData: ColumnListProps[] = [
   {
@@ -57,16 +60,23 @@ const userInfo: GlobalHeaderProps = {
   isLogin: true
 };
 
+const rules:IRule[]=[
+  { type: 'required', message: '电子邮箱地址不能为空' },
+  { type: 'email', message: '请输入正确的电子邮箱格式' }
+]
+
 export default defineComponent({
   name: "App",
   components: {
     ColumnList,
-    GlobalHeader
+    GlobalHeader,
+    ValidateInput
   },
   setup() {
     return {
       testData,
-      userInfo
+      userInfo,
+      rules
     };
   }
 });
