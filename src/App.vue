@@ -2,7 +2,7 @@
  * @Author: 吴灏
  * @Date: 2020-12-08 21:14:02
  * @LastEditors: 吴灏
- * @LastEditTime: 2020-12-09 22:10:34
+ * @LastEditTime: 2020-12-11 10:42:32
  * @Description: file content
 -->
 <template>
@@ -17,11 +17,10 @@ import { defineComponent } from "vue";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ColumnList, {
   ColumnListProps
-} from "./components/ColumnList/ColumnList.vue";
+} from "components/ColumnList/ColumnList.vue";
 import GlobalHeader, {
   GlobalHeaderProps
 } from "./components/GlobalHeader/GlobalHeader.vue";
-
 
 const testData: ColumnListProps[] = [
   {
