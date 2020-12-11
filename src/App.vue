@@ -7,7 +7,7 @@
 -->
 <template>
   <div class="container">
-    <GlobalHeader :user="userInfo" />
+    <GlobalHeader :props="userInfo" />
     <ColumnList :list="testData" />
   </div>
 </template>
